@@ -22,10 +22,12 @@ async function getQuote() {
         removeLoadingSpinner();
     } catch(error) {
         fetchCounter++;
-        if (fetchCounter < 10)
+        if (fetchCounter < 10) {
             getQuote();
-        else
-            console.error('There seems to be a problem fetching quotes this time, try again later :)');
+        } else {
+            fetchCounter = 0;
+            setTimeout(getQuote, 1000);
+        }
     }
 }
 
