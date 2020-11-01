@@ -22,7 +22,7 @@ async function getQuote() {
         removeLoadingSpinner();
     } catch(error) {
         fetchCounter++;
-        if (fetchCounter < 10) {
+        if (fetchCounter < 5) {
             getQuote();
         } else {
             fetchCounter = 0;
